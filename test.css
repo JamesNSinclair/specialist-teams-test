@@ -1,82 +1,171 @@
+:root {
+  --main-bg-color: red;
+}
+
+
+* {
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-}
-
-.solution-share,
-.share-article {
-    font-weight: 600;
-  width: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.marketing {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: row;
+  height: 100vh;
+      display: flex;
       align-items: center;
       text-align: center;
-      position: relative;
       justify-content: center;
-
-      }
-
-
-
-[class*="leader"] {
-    position: relative;
-    z-index: 5;
-      transition: all 1s ease;
-
-
-
+      margin: auto;
 }
 
+#banner {
 
-[class*="leader"],
-[class$="staff"] {
-      background-color: mistyrose;
-            display: flex;
-        flex-direction: column;
-            align-items: center;
-            text-align: center;
+  background-color: rgba(55, 55, 55, 0.8);
+ color: white;
+   display: grid;
+  grid-template-columns: 1fr 4fr;
+ width: 500px;
+ height: 300px;
+ border: 5px white solid;
+ position: relative;
+ overflow: hidden;
+ z-index: 1;
 }
 
-[class$="staff"] {
-  width: 150px;
-    position: absolute;
-    margin-right: 400px;
-    visibility: hidden;
-    transition: all 1s ease-out;
-    transition-delay: 0.3s;
-}
-
-.leader-img {
-  width: 225px;
-  height: 225px;
-  object-fit: cover;
+#outer-moving{
+  position: relative;
+  margin: 0;
+  background-image: url("images/classroom.jpeg");
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
+   border-radius: 10px;
   }
 
-  .staff-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+#moved-banner {
+  height: 80%;
+  background-color: var(--main-bg-color);
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: -280px;
+  left: 35px;
+  z-index: -1;
+  transition: transform 1.2s cubic-bezier(.47,1.64,.41,.8);
+  transform: translate(0, 270px);
+}
+
+#moved-banner p{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  transform: rotate(270deg) scale(1.5);
+      font-weight: bold;
+      color: white;
+  margin: auto;
+  background: var(--main-bg-color);
+}
+
+#moved-text {
+  margin: 10px 30px;
+}
+
+
+    #triangle-down {
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 35px solid var(--main-bg-color);
+      position: relative;
+      margin: auto;
+      height: 100%;
+      width: 100;
+        top: -280px;
+      left: 35px;
+      transition: transform 1.2s cubic-bezier(.47,1.64,.41,.8);
+      transform: translate(0, 270px);
+    }
+
+#moved-button {
+    display: flex;
+    margin: auto;
+    background: var(--main-bg-color);
+    justify-content: center;
+    color: white;
+    width: 200px;
+    height: 35px;
+    align-items: center;
+    transition: transform 0.8s;
+      border: var(--main-bg-color) 1px solid;
+        margin-top: 25px;
+}
+
+
+
+#moved-button:hover {
+      transition: 0.8s;
+      border: white 1px solid;
+      transform: scale(1.2);
+}
+
+#moved-cross {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-size: 20px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  background: var(--main-bg-color);
+  color: white;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+        margin: 0;
+        z-index: 55;
+}
+#moved-cross:hover {
+      transition: 0.8s;
+      border: white 1px solid;
+      transform: scale(1.2);
     }
 
 
-.social svg {
-  height: 50px;
-  width: auto;
+
+
+
+@media only screen and (max-width: 600px) {
+
+#banner {
+ display:block;
 }
 
-[class$="staff"]  .social svg {
-  height: 25px;
-  width: auto;
+#left-banner {
+  display: none;
 }
 
-h3, h2, h4 {
-  margin: 10px;
+#moved-text {
+  display: flex;
+    flex-direction: column;
+    margin:auto;
+}
+
+/* #banner {
+  grid-template-columns: 1fr 5fr;
+}
+
+  #moved-banner {
+    left: 10px;
+      width:80%;
+  }
+
+
+  #triangle-down {
+    left: 10px;
+    width:80%;
+      }
+
+      #moved-text {
+    margin-top: 0px;
+} */
 }
